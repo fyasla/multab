@@ -1,6 +1,7 @@
 <script lang="ts">
 	export let x :number;
     export let y: number;
+    
     let isC: boolean = ((x * y) === 0);
     function handleClick() {
         if (x === 0 || y === 0) {
