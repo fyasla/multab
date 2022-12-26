@@ -13,7 +13,7 @@
 
 </script>
 
-<div id="main-grid" class="grid grid-cols-11">
+<div id="main-grid" class="grid grid-cols-11 gap-4">
     <!-- make 10 rows of 10 squares with svelte each statement-->
     {#each range_array as i}
         {#each range_array as j}
@@ -21,13 +21,3 @@
         {/each}
     {/each}
 </div>
-
-
-<label class="swap swap-flip text-9xl">
-  
-    <!-- this hidden checkbox controls the state -->
-    <input type="checkbox" />
-    
-    <div class="swap-on">5️⃣6️⃣</div>
-    <div class="swap-off">❌</div>
-  </label>
