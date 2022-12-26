@@ -1,12 +1,33 @@
 <script lang="ts">
-	import { xlink_attr } from "svelte/internal";
+    import Square from './Square.svelte';
+    //function that returns an array of numbers from start to end using a for loop
+    function range(start: number, end: number): number[] {
+        let range_array: number[] = [];
+        for (let i: number = start; i <= end; i++) {
+            range_array.push(i);
+        }
+        return range_array;
+    }
+
+    let range_array: number[] = range(0, 10);
 
 </script>
 
-<h1>Testing hot reload again and again, yes</h1>
-<div>
-    <div id="x"></div>
-    <div id="top-row"></div>
-    <div id="left-column"></div>
-    <div id="main-grid" grid-cols-10></div>
+<div id="main-grid" class="grid grid-cols-11">
+    <!-- make 10 rows of 10 squares with svelte each statement-->
+    {#each range_array as i}
+        {#each range_array as j}
+           <Square x={i} y={j}/>
+        {/each}
+    {/each}
 </div>
+
+
+<label class="swap swap-flip text-9xl">
+  
+    <!-- this hidden checkbox controls the state -->
+    <input type="checkbox" />
+    
+    <div class="swap-on">5️⃣6️⃣</div>
+    <div class="swap-off">❌</div>
+  </label>

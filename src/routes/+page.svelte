@@ -1,8 +1,8 @@
 <script>
-    import Game from './game.svelte';
+    import Game from './Game.svelte';
 </script>
 
 <slot>
-    <svelte:component this={Game} />
+    <Game />
 </slot>
  
