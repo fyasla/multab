@@ -15,11 +15,11 @@
     });
     
     function handleClick() {
-        lastSquareClicked.set({x, y});
         if (x === 0 || y === 0) {
             return;
         }
         if($products[$currentIndex] === (x * y)) {
+            lastSquareClicked.set({x, y});
             isSwapActive = !isSwapActive;
             $currentIndex += 1;
         }
@@ -30,8 +30,8 @@
     });
 </script>
 
-<div on:click={handleClick} class="swap swap-flip" class:swap-active="{isSwapActive}">
-    <div class="swap-on">
+<label on:click={handleClick} class="swap swap-flip" class:swap-active="{isSwapActive}">
+    <div class="swap-on bg-success">
         {#if x === 0 && y === 0}
             X
         {:else if x === 0}
@@ -42,5 +42,5 @@
             {x * y}
         {/if}
     </div>
-    <div class="swap-off">O</div>
-</div>
+    <div class="swap-off bg-neutral">O</div>
+</label>

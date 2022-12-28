@@ -14,7 +14,7 @@
     let range_array: number[] = range(start, end);
 </script>
 
-<div id="main-grid" class="grid grid-cols-11 gap-4">
+<div id="main-grid" class="basis-full grid grid-cols-11">
     <!-- make 10 rows of 10 squares with svelte each statement-->
     {#each range_array as i}
         {#each range_array as j}
@@ -22,4 +22,3 @@
         {/each}
     {/each}
 </div>
-<div>{$products[$currentIndex]}</div>
