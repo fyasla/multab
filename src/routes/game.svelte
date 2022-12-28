@@ -1,6 +1,6 @@
 <script lang="ts">
     import Square from './Square.svelte';
-    import { products } from '../store.js';
+    import { products, currentIndex } from '../store.js';
     let start: number = 0;
     let end: number = 10;
     //function that returns an array of numbers from start to end using a for loop
@@ -11,7 +11,6 @@
         }
         return range_array;
     }
-
     let range_array: number[] = range(start, end);
 </script>
 
@@ -23,4 +22,4 @@
         {/each}
     {/each}
 </div>
-<div>{$products}</div>
+<div>{$products[$currentIndex]}</div>
