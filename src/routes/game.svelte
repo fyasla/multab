@@ -14,7 +14,7 @@
     let range_array: number[] = range(start, end);
 </script>
 
-<div id="main-grid" class="basis-full grid grid-cols-11">
+<div id="main-grid" class="grid grid-cols-11 h-fit w-fit">
     <!-- make 10 rows of 10 squares with svelte each statement-->
     {#each range_array as i}
         {#each range_array as j}
