@@ -17,7 +17,6 @@ import Game from './Game.svelte';
             <Game />
         </div>
         <div class="flex flex-row">
-            <PlayButton/>
             <BestTime/>
         </div>
     </div>

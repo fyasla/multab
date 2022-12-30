@@ -32,7 +32,7 @@
 </script>
 
 {#if isVisible}
-    <div transition:fade class="">
+    <div transition:fade class="bg-success success-content">
         {#if x === 0 && y === 0}
             X
         {:else if x === 0}
@@ -44,5 +44,5 @@
         {/if}
     </div>
 {:else}
-    <div on:click={handleClick} class="">O</div>
+    <div on:click={handleClick} class="bg-neutral neutral-content">O</div>
 {/if}

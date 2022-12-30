@@ -1,1 +1,0 @@
-<button class="btn btn-primary flex-1 justify-center">Play</button>

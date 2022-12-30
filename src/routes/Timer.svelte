@@ -1,23 +1,29 @@
 <script lang="ts">
-    //create a timer
+    import { GameStatus, gameStatus } from '../store.js';
+
+    let intervalId: NodeJS.Timer;
     let timer: number = 0;
-    //uspdate the timer every second
-    setInterval(() => {
-        timer++;
-    }, 1000);
+
+    function startTimer() {
+        if ($gameStatus === GameStatus.notStarted) {
+            gameStatus.set(GameStatus.started);
+            intervalId = setInterval(() => {
+            timer += 1;
+            }, 1000);
+        }
+    }
+
+    function stopTimer(intervalId: NodeJS.Timer) {
+        clearInterval(intervalId);
+        if ($gameStatus === GameStatus.started) {
+            gameStatus.set(GameStatus.notStarted);
+        }
+    }
+
 </script>
 
-<div class="flex-1 justify-center grid grid-flow-col gap-5 text-center auto-cols-max">
-    <div class="flex flex-col p-2 bg-neutral rounded-box text-neutral-content">
-        <span class="countdown font-mono text-5xl">
-        <span style="--value:{timer};"></span>
-        </span>
-        min
-    </div> 
-    <div class="flex flex-col p-2 bg-neutral rounded-box text-neutral-content">
-        <span class="countdown font-mono text-5xl">
-        <span style="--value:{timer};"></span>
-        </span>
-        sec
-    </div>
+<div>
+    <button on:click={startTimer}>Start</button>
+    <button on:click={() => stopTimer(intervalId)}>Stop</button>
 </div>
+<div class="radial-progress" style="--value:{(timer)};">{(timer)}</div>

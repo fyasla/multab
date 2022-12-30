@@ -1,5 +1,12 @@
 import { writable } from 'svelte/store';
 
+export enum GameStatus {
+  notStarted,
+  started,
+  paused,
+  finished
+}
+
 function shuffle(array: number[]) :number[] {
   //shuffe randomly the array
     let currentIndex:number = array.length, temporaryValue: number, randomIndex: number;
@@ -27,6 +34,8 @@ function createProductList() :number[] {
 export const products = writable(createProductList());
 export const currentIndex = writable(0);
 export const lastSquareClicked = writable({x: -1, y: -1});
+export const timer = writable(0);
+export const gameStatus = writable(GameStatus.notStarted);
 
 
 
