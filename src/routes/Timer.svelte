@@ -9,7 +9,7 @@
             gameStatus.set(GameStatus.started);
             intervalId = setInterval(() => {
             timer += 1;
-            }, 1000);
+            }, 10);
         }
     }
 
@@ -20,10 +20,12 @@
         }
     }
 
+    let seconds = (timer / 100) % 60;
+
 </script>
 
 <div>
     <button on:click={startTimer}>Start</button>
     <button on:click={() => stopTimer(intervalId)}>Stop</button>
 </div>
-<div class="radial-progress" style="--value:{(timer)};">{(timer)}</div>
+<div>{timer}</div>

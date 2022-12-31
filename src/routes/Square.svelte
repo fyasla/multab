@@ -31,18 +31,20 @@
     });
 </script>
 
-{#if isVisible}
-    <div transition:fade class="bg-success success-content">
-        {#if x === 0 && y === 0}
-            X
-        {:else if x === 0}
-            {y}
-        {:else if y === 0}
-            {x}
-        {:else}
-            {x * y}
-        {/if}
-    </div>
+{#if x === 0 && y === 0}
+<td>X</td>
+{:else if x === 0}
+<th>{y}</th>
+{:else if y === 0}
+<th>{x}</th>
 {:else}
-    <div on:click={handleClick} class="bg-neutral neutral-content">O</div>
+    {#if isVisible}    
+    <td>
+        <div transition:fade class="bg-success success-content">{x * y}</div>
+    </td>
+    {:else}
+    <td>
+        <div on:click={handleClick} class="bg-neutral neutral-content">O</div>
+    </td>
+    {/if}
 {/if}

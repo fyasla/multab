@@ -13,7 +13,7 @@ import Game from './Game.svelte';
             <Timer/>
             <GoalNumber/>
         </div>
-        <div class="flex justify-center flex-1">
+        <div class="flex justify-center align-center flex-1">
             <Game />
         </div>
         <div class="flex flex-row">

@@ -14,11 +14,13 @@
     let range_array: number[] = range(start, end);
 </script>
 
-<div id="main-grid" class="grid grid-cols-11 gap-1">
-    <!-- make 10 rows of 10 squares with svelte each statement-->
+<table>
+    <caption>MULTAB GAME</caption>
     {#each range_array as i}
+    <tr>
         {#each range_array as j}
-           <Square x={i} y={j}/>
+            <Square x={i} y={j}/>
         {/each}
+    </tr>
     {/each}
-</div>
+</table>
