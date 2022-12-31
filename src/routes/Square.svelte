@@ -39,12 +39,12 @@
 <th>{x}</th>
 {:else}
     {#if isVisible}    
-    <td>
-        <div transition:fade class="bg-success success-content">{x * y}</div>
+    <td transition:fade class="bg-success success-content">
+        {x * y}
     </td>
     {:else}
-    <td>
-        <div on:click={handleClick} class="bg-neutral neutral-content">O</div>
+    <td on:click={handleClick} class="bg-neutral neutral-content">
+        O
     </td>
     {/if}
 {/if}

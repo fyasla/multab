@@ -3,6 +3,7 @@
     import { products, currentIndex } from '../store.js';
     let start: number = 0;
     let end: number = 10;
+    
     //function that returns an array of numbers from start to end using a for loop
     function range(range_start: number, range_end: number): number[] {
         let range_array: number[] = [];
