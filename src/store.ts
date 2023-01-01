@@ -36,6 +36,7 @@ export const currentIndex = writable(0);
 export const lastSquareClicked = writable({x: -1, y: -1});
 export const timer = writable(0);
 export const gameStatus = writable(GameStatus.notStarted);
+export const hoveredSquare = writable({x: -1, y: -1});
 
 
 

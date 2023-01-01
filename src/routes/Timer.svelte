@@ -24,8 +24,8 @@
 
 </script>
 
-<div>
-    <button on:click={startTimer}>Start</button>
-    <button on:click={() => stopTimer(intervalId)}>Stop</button>
+<div class="flex justify-center">
+    <button class="btn" on:click={startTimer}>Start</button>
+    <button class="btn" on:click={() => stopTimer(intervalId)}>Stop</button>
 </div>
 <div>{timer}</div>
