@@ -6,7 +6,7 @@
 </script>
 
 <slot >
-    <div class="flex bg-primary flex-col">
+    <div class="flex h-100vh v-100vw items-center bg-base-200 flex-col">
         <h1 class="hero">FREECH</h1>
         <div class="">
             <Timer/>

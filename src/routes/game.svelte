@@ -15,7 +15,7 @@
     let range_array: number[] = range(start, end);
 </script>
 
-<table class="mx-auto h-[70vh] w-[70vh]">
+<table class="mx-auto h-table w-table">
     {#each range_array as i}
     <tr class="">
         {#each range_array as j}
