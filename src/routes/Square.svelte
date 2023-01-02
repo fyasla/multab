@@ -43,18 +43,18 @@
 </script>
 
 {#if x === 0 && y === 0}
-    <td class="text-center bg-success success-content" on:mouseenter={updateHoveredSquare}>X</td>
+    <td class="w-1/11 h-1/11 text-center bg-success success-content" on:mouseenter={updateHoveredSquare}>X</td>
 {:else if x === 0}
-    <th class="text-center bg-success success-content" on:mouseenter={updateHoveredSquare} class:bg-primary-focus={isSquareHovered} class:bg-secondary-focus={!isSquareHovered && isSecondaryHovered}>{y}</th>
+    <th class="w-1/11 h-1/11 text-center bg-success success-content" on:mouseenter={updateHoveredSquare} class:bg-primary-focus={isSquareHovered} class:bg-secondary-focus={!isSquareHovered && isSecondaryHovered}>{y}</th>
 {:else if y === 0}
-    <th class="text-center bg-success success-content" on:mouseenter={updateHoveredSquare} class:bg-primary-focus={isSquareHovered} class:bg-secondary-focus={!isSquareHovered && isSecondaryHovered}>{x}</th>
+    <th class="w-1/11 h-1/11 text-center bg-success success-content" on:mouseenter={updateHoveredSquare} class:bg-primary-focus={isSquareHovered} class:bg-secondary-focus={!isSquareHovered && isSecondaryHovered}>{x}</th>
 {:else}
     {#if isVisible}    
-    <td transition:fade class="text-center bg-success success-content" on:mouseenter={updateHoveredSquare} class:bg-primary-focus={isSquareHovered} class:bg-secondary-focus={!isSquareHovered && isSecondaryHovered}>
+    <td transition:fade class="w-1/11 h-1/11 text-center bg-success success-content" on:mouseenter={updateHoveredSquare} class:bg-primary-focus={isSquareHovered} class:bg-secondary-focus={!isSquareHovered && isSecondaryHovered}>
         {x * y}
     </td>
     {:else}
-    <td on:click={handleClick} class="text-center neutral-content" on:mouseenter={updateHoveredSquare} class:bg-neutral={!isSquareHovered && !isSecondaryHovered} class:bg-primary-focus={isSquareHovered} class:bg-secondary-focus={!isSquareHovered && isSecondaryHovered}>
+    <td on:click={handleClick} class="w-1/11 h-1/11 text-center neutral-content" on:mouseenter={updateHoveredSquare} class:bg-neutral={!isSquareHovered && !isSecondaryHovered} class:bg-primary-focus={isSquareHovered} class:bg-secondary-focus={!isSquareHovered && isSecondaryHovered}>
         O
     </td>
     {/if}
