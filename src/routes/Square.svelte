@@ -43,7 +43,7 @@
 </script>
 
 {#if x === 0 && y === 0}
-    <td class="w-1/11 h-1/11 text-center bg-success success-content" on:mouseenter={updateHoveredSquare}>X</td>
+    <th class="w-1/11 h-1/11 text-center bg-success success-content" on:mouseenter={updateHoveredSquare}>X</th>
 {:else if x === 0}
     <th class="w-1/11 h-1/11 text-center bg-success success-content" on:mouseenter={updateHoveredSquare} class:bg-primary-focus={isSquareHovered} class:bg-secondary-focus={!isSquareHovered && isSecondaryHovered}>{y}</th>
 {:else if y === 0}
