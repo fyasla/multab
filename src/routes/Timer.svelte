@@ -1,23 +1,37 @@
 <script lang="ts">
-    //create a timer
-    let timer: number = 0;
-    //uspdate the timer every second
-    setInterval(() => {
-        timer++;
-    }, 1000);
-</script>
-
-<div class="grid grid-flow-col gap-5 text-center auto-cols-max">
-    <div class="flex flex-col p-2 bg-neutral rounded-box text-neutral-content">
-        <span class="countdown font-mono text-5xl">
-        <span style="--value:{timer};"></span>
-        </span>
-        min
-    </div> 
-    <div class="flex flex-col p-2 bg-neutral rounded-box text-neutral-content">
-        <span class="countdown font-mono text-5xl">
-        <span style="--value:{timer};"></span>
-        </span>
-        sec
-    </div>
-</div>
+    import { GameStatus, gameStatus } from '../store.js';
+    let elapsedTime: number;
+    $: elapsedTime = 0;
+    let interval: NodeJS.Timer;
+    let minutes: number, seconds: number, centiseconds: number;
+    $: minutes = Math.floor(elapsedTime / 60);
+    $: seconds = Math.floor(elapsedTime % 60);
+    $: centiseconds = Math.floor((elapsedTime * 100) % 100);
+  
+    function start() {
+        if ($gameStatus === GameStatus.notStarted) {
+            $gameStatus = GameStatus.started;
+            interval = setInterval(() => {
+            elapsedTime += 0.01;
+            }, 10);
+        }
+    }
+  
+    function stop() {
+      clearInterval(interval);
+      if ($gameStatus === GameStatus.started) {
+            $gameStatus = GameStatus.notStarted;
+        }
+    }
+  
+    function reset() {
+      elapsedTime = 0;
+    }
+  </script>
+  
+  <button class="btn" on:click={start}>Start</button>
+  <button class="btn" on:click={stop}>Stop</button>
+  <button class="btn" on:click={reset}>Reset</button>
+  
+  <p>Elapsed Time: {minutes}:{seconds}.{centiseconds}</p>
+  

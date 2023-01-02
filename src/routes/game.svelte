@@ -3,6 +3,7 @@
     import { products, currentIndex } from '../store.js';
     let start: number = 0;
     let end: number = 10;
+
     //function that returns an array of numbers from start to end using a for loop
     function range(range_start: number, range_end: number): number[] {
         let range_array: number[] = [];
@@ -14,12 +15,12 @@
     let range_array: number[] = range(start, end);
 </script>
 
-<div id="main-grid" class="grid grid-cols-11 gap-4">
-    <!-- make 10 rows of 10 squares with svelte each statement-->
+<table class="mx-auto h-table w-table aspect-square">
     {#each range_array as i}
+    <tr class="">
         {#each range_array as j}
-           <Square x={i} y={j}/>
+            <Square x={i} y={j}/>
         {/each}
+    </tr>
     {/each}
-</div>
-<div>{$products[$currentIndex]}</div>
+</table>
