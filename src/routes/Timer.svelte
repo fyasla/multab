@@ -29,9 +29,9 @@
     }
   </script>
   
-  <button on:click={start}>Start</button>
-  <button on:click={stop}>Stop</button>
-  <button on:click={reset}>Reset</button>
+  <button class="btn" on:click={start}>Start</button>
+  <button class="btn" on:click={stop}>Stop</button>
+  <button class="btn" on:click={reset}>Reset</button>
   
   <p>Elapsed Time: {minutes}:{seconds}.{centiseconds}</p>
   
