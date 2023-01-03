@@ -15,7 +15,7 @@
     let range_array: number[] = range(start, end);
 </script>
 
-<table class="mx-auto h-table w-table aspect-square">
+<table class="grid mx-auto h-table w-table aspect-square">
     {#each range_array as i}
     <tr class="">
         {#each range_array as j}
