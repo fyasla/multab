@@ -54,7 +54,8 @@
         {x * y}
     </td>
     {:else}
-    <td on:click={handleClick} class="w-1/11 h-1/11 text-center info-content" on:mouseenter={updateHoveredSquare} class:bg-info={!isSquareHovered && !isSecondaryHovered} class:bg-warning={isSquareHovered || isSecondaryHovered}>
+    <td on:click={handleClick} class="w-1/11 h-1/11 text-center info-content" on:mouseenter={updateHoveredSquare} class:bg-info={!isSquareHovered && !isSecondaryHovered} 
+    class:bg-warning={isSquareHovered || isSecondaryHovered} class:warning-content={isSquareHovered || isSecondaryHovered}>
         O
     </td>
     {/if}

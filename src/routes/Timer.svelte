@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { GameStatus, gameStatus } from '../store.js';
+    import { GameStatus, gameStatus, currentIndex } from '../store.js';
     let elapsedTime: number;
     $: elapsedTime = 0;
     let interval: NodeJS.Timer;
@@ -10,6 +10,7 @@
   
     function start() {
         if ($gameStatus === GameStatus.notStarted) {
+          $currentIndex = 0;
             $gameStatus = GameStatus.started;
             interval = setInterval(() => {
             elapsedTime += 0.01;
@@ -20,6 +21,7 @@
     function stop() {
       clearInterval(interval);
       if ($gameStatus === GameStatus.started) {
+            reset();
             $gameStatus = GameStatus.notStarted;
         }
     }
@@ -29,9 +31,13 @@
     }
   </script>
   
-  <button class="btn" on:click={start}>Start</button>
-  <button class="btn" on:click={stop}>Stop</button>
-  <button class="btn" on:click={reset}>Reset</button>
-  
-  <p>Elapsed Time: {minutes}:{seconds}.{centiseconds}</p>
+  <div>
+    {#if $gameStatus === GameStatus.notStarted}
+      <button class="btn" on:click={start}>Start</button>
+    {:else if $gameStatus === GameStatus.started}
+      <button class="btn" on:click={stop}>Give Up</button>
+    {/if}
+    
+    <p class="text-center">{minutes}:{seconds}.{centiseconds}</p>
+  </div>
   
