@@ -3,6 +3,9 @@ module.exports = {
   content: ['./src/**/*.{html,js,svelte,ts}'],
   theme: {
     extend: {
+      fontSize: {
+        '35vw': '35vw',
+      },
       width: {
         'table': 'min(60vh, 70vw)',
         '100vw': '100vw',

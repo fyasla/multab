@@ -33,7 +33,6 @@
     }
 
     function updateHoveredSquare() {
-        console.log("hovered square" + x + " " + y);
         $hoveredSquare = {x, y};
     }
 

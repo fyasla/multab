@@ -7,12 +7,14 @@
 
 <slot >
     <div class="flex h-100vh v-100vw items-center bg-base-200 flex-col">
-        <h1 class="hero">FREECH</h1>
+        <h1 class="hero">MULTAB</h1>
         <div class="">
             <Timer/>
-            <GoalNumber/>
         </div>
-        <Game />
+        <div class="relative">
+            <GoalNumber/>
+            <Game />
+        </div>
         <BestTime/>
     </div>
 </slot>
