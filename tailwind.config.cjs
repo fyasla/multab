@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     extend: {
       fontSize: {
-        '35vw': '35vw',
+        '35vp': 'min(35vw, 50vh)',
       },
       width: {
         'table': 'min(60vh, 70vw)',
