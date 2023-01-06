@@ -42,18 +42,18 @@
 </script>
 
 {#if x === 0 && y === 0}
-    <th class="flex-1 text-center bg-neutral neutral-content aspect-square" on:mouseenter={updateHoveredSquare}>X</th>
+    <th class="flex flex-1 justify-center items-center bg-neutral neutral-content aspect-square" on:mouseenter={updateHoveredSquare}>X</th>
 {:else if x === 0}
-    <th class="flex-1 text-center bg-neutral neutral-content aspect-square" on:mouseenter={updateHoveredSquare} class:bg-neutral-focus={isSquareHovered || isSecondaryHovered}>{y}</th>
+    <th class="flex flex-1 justify-center items-center bg-neutral neutral-content aspect-square" on:mouseenter={updateHoveredSquare} class:bg-neutral-focus={isSquareHovered || isSecondaryHovered}>{y}</th>
 {:else if y === 0}
-    <th class="flex-1 text-center bg-neutral neutral-content aspect-square" on:mouseenter={updateHoveredSquare} class:bg-neutral-focus={isSquareHovered || isSecondaryHovered}>{x}</th>
+    <th class="flex flex-1 justify-center items-center bg-neutral neutral-content aspect-square" on:mouseenter={updateHoveredSquare} class:bg-neutral-focus={isSquareHovered || isSecondaryHovered}>{x}</th>
 {:else}
     {#if isVisible}    
-    <td transition:fade class="flex-1 text-center bg-success success-content aspect-square" on:mouseenter={updateHoveredSquare}>
+    <td transition:fade class="flex flex-1 justify-center items-center bg-success success-content aspect-square" on:mouseenter={updateHoveredSquare}>
         {x * y}
     </td>
     {:else}
-    <td on:click={handleClick} class="flex-1 text-center info-content aspect-square" on:mouseenter={updateHoveredSquare} class:bg-info={!isSquareHovered && !isSecondaryHovered} 
+    <td on:click={handleClick} class="flex flex-1 justify-center items-center info-content aspect-square" on:mouseenter={updateHoveredSquare} class:bg-info={!isSquareHovered && !isSecondaryHovered} 
     class:bg-warning={isSquareHovered || isSecondaryHovered} class:warning-content={isSquareHovered || isSecondaryHovered}>
         O
     </td>
