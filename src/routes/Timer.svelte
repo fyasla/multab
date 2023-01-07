@@ -1,13 +1,11 @@
 <script lang="ts">
-    import { GameStatus, gameStatus, currentIndex } from '../store.js';
-    let elapsedTime: number;
-    $: elapsedTime = 0;
+    import { GameStatus, gameStatus, currentIndex, timer, malusTime } from '../store.js';
     let interval: NodeJS.Timer;
     let minutes: number, seconds: number, centiseconds: number;
     let startTime: number;
-    $: minutes = Math.floor((elapsedTime / 1000) / 60);
-    $: seconds = Math.floor((elapsedTime / 1000) % 60);
-    $: centiseconds = Math.floor(((elapsedTime / 1000) * 100) % 100);
+    $: minutes = Math.floor(($timer / 1000) / 60);
+    $: seconds = Math.floor(($timer / 1000) % 60);
+    $: centiseconds = Math.floor((($timer / 1000) * 100) % 100);
 
     function start() {
       if ($gameStatus === GameStatus.notStarted) {
@@ -15,7 +13,7 @@
           $gameStatus = GameStatus.started;
     startTime = Date.now();
     interval = setInterval(() => {
-      elapsedTime = Date.now() - startTime;
+      $timer = (Date.now() - startTime) + $malusTime;
     }, 10);
   }
   }
@@ -29,7 +27,7 @@
     }
   
     function reset() {
-      elapsedTime = 0;
+      $timer = 0;
     }
   </script>
   

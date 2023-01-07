@@ -21,7 +21,7 @@ function shuffle(array: number[]) :number[] {
 }
 
 function createProductList() :number[] {
-  let productsList: number[] = [];
+  const productsList: number[] = [];
   for (let i = 1; i <= 10; i++) {
     for (let j = 1; j <= i; j++) {
       productsList.push(i * j);
@@ -35,6 +35,7 @@ export const products = writable(createProductList());
 export const currentIndex = writable(-1);
 export const lastSquareClicked = writable({x: -1, y: -1});
 export const timer = writable(0);
+export const malusTime = writable(0);
 export const gameStatus = writable(GameStatus.notStarted);
 export const hoveredSquare = writable({x: -1, y: -1});
 
