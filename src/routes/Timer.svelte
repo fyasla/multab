@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { GameStatus, gameStatus, currentIndex, timer, malusTime } from '../store.js';
+    import { GameStatus, gameStatus, currentIndex, timer, malusTime, products, shuffle } from '../store.js';
     let interval: NodeJS.Timer;
     let minutes: number, seconds: number, centiseconds: number;
     let startTime: number;
@@ -7,27 +7,37 @@
     $: seconds = Math.floor(($timer / 1000) % 60);
     $: centiseconds = Math.floor((($timer / 1000) * 100) % 100);
 
+    $: if ($currentIndex === $products.length) gameWon();
+
+    function gameWon() {
+      clearInterval(interval);
+      $gameStatus = GameStatus.won;
+    }
+
     function start() {
       if ($gameStatus === GameStatus.notStarted) {
           $currentIndex = 0;
           $gameStatus = GameStatus.started;
-    startTime = Date.now();
-    interval = setInterval(() => {
-      $timer = (Date.now() - startTime) + $malusTime;
-    }, 10);
+          startTime = Date.now();
+          interval = setInterval(() => {
+            $timer = (Date.now() - startTime) + $malusTime;
+          }, 10);
   }
   }
   
     function stop() {
       clearInterval(interval);
       if ($gameStatus === GameStatus.started) {
-            reset();
+            resetGame();
             $gameStatus = GameStatus.notStarted;
         }
     }
   
-    function reset() {
+    function resetGame() {
       $timer = 0;
+      $malusTime = 0;
+      $currentIndex = -1;
+      shuffle($products);
     }
   </script>
   

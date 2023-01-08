@@ -3,7 +3,7 @@
 <script lang="ts">
 	import { onDestroy } from 'svelte';
 	import { fade } from 'svelte/transition';
-    import { products, currentIndex, lastSquareClicked, hoveredSquare, malusTime } from '../store.js';
+    import { products, currentIndex, lastSquareClicked, hoveredSquare, malusTime, gameStatus, GameStatus } from '../store.js';
 
 	export let x :number;
     export let y: number;
@@ -41,12 +41,18 @@
     }
     
     function handleClick() {
-        checkAnswer(x,  y);
-        $lastSquareClicked = {x, y};
+        if ($gameStatus === GameStatus.started) {
+            checkAnswer(x,  y);
+            $lastSquareClicked = {x, y};
+        }
     }
 
     function updateHoveredSquare() {
         $hoveredSquare = {x, y};
+    }
+
+    $: if ($gameStatus === GameStatus.notStarted && isVisible) {
+        isVisible = false;
     }
 
     onDestroy(() => {

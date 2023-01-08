@@ -4,10 +4,10 @@ export enum GameStatus {
   notStarted,
   started,
   paused,
-  finished
+  won
 }
 
-function shuffle(array: number[]) :number[] {
+export function shuffle(array: number[]) :number[] {
   //shuffe randomly the array
     let currentIndex:number = array.length, temporaryValue: number, randomIndex: number;
     while (0 !== currentIndex) {
@@ -38,6 +38,3 @@ export const timer = writable(0);
 export const malusTime = writable(0);
 export const gameStatus = writable(GameStatus.notStarted);
 export const hoveredSquare = writable({x: -1, y: -1});
-
-
-
