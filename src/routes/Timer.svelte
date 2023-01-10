@@ -26,11 +26,9 @@
   }
   
     function stop() {
+      $gameStatus = GameStatus.notStarted;
+      resetGame();
       clearInterval(interval);
-      if ($gameStatus === GameStatus.started) {
-            resetGame();
-            $gameStatus = GameStatus.notStarted;
-        }
     }
   
     function resetGame() {

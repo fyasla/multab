@@ -68,7 +68,7 @@
     <th class="flex flex-1 justify-center items-center bg-neutral neutral-content aspect-square" on:mouseenter={updateHoveredSquare} class:bg-neutral-focus={isSquareHovered || isSecondaryHovered}>{x}</th>
 {:else}
     {#if isVisible}    
-    <td transition:fade class="flex flex-1 justify-center items-center bg-success success-content aspect-square" on:mouseenter={updateHoveredSquare}>
+    <td in:fade class="flex flex-1 justify-center items-center bg-success success-content aspect-square" on:mouseenter={updateHoveredSquare}>
         {x * y}
     </td>
     {:else}
