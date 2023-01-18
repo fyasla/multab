@@ -2,7 +2,7 @@
 
 <script lang="ts">
 	import { onDestroy } from 'svelte';
-	import { fade } from 'svelte/transition';
+	import { draw, fade, fly } from 'svelte/transition';
     import { products, currentIndex, lastSquareClicked, hoveredSquare, malusTime, gameStatus, GameStatus } from '../store.js';
 
 	export let x :number;
@@ -68,7 +68,7 @@
     <th class="flex flex-1 justify-center items-center bg-neutral neutral-content aspect-square" on:mouseenter={updateHoveredSquare} class:bg-neutral-focus={isSquareHovered || isSecondaryHovered}>{x}</th>
 {:else}
     {#if isVisible}    
-    <td in:fade class="flex flex-1 justify-center items-center bg-success success-content aspect-square" on:mouseenter={updateHoveredSquare}>
+    <td in:fly class="flex flex-1 justify-center items-center bg-success success-content aspect-square" on:mouseenter={updateHoveredSquare}>
         {x * y}
     </td>
     {:else}
