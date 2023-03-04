@@ -5,7 +5,7 @@
 </script>
 
 <slot >
-    <div class="flex h-100vh v-100vw items-center bg-base-200 flex-col">
+    <div class="flex h-100vh v-100vw items-center justify-center bg-base-200 flex-col">
         <Timer/>
         <div class="relative">
             <GoalNumber/>

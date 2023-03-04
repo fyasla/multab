@@ -1,5 +1,9 @@
 <script lang="ts">
-    import { products, currentIndex } from '../store.js';
+    import { products, currentIndex, timer } from '../store.js';
+    let minutes: number, seconds: number, centiseconds: number;
+    $: minutes = Math.floor(($timer / 1000) / 60);
+    $: seconds = Math.floor(($timer / 1000) % 60);
+    $: centiseconds = Math.floor((($timer / 1000) * 100) % 100);
 </script>
 
 
